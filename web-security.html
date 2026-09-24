@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS // Web Security</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header>
+      <div>
+        <div class="brand">NEXUS // CYBEROPS</div>
+        <h1>WEB SECURITY AUDITOR</h1>
+        <p>Authorized security assessment</p>
+      </div>
+
+      <div class="status">
+        ● BROWSER ONLINE
+      </div>
+    </header>
+
+    <section class="target-box">
+
+      <label>AUTHORIZED TARGET</label>
+
+      <div class="target-row">
+        <input
+          id="target"
+          type="url"
+          placeholder="https://your-website.example"
+        >
+
+        <button id="auditBtn">
+          ANALYZE
+        </button>
+      </div>
+
+      <p class="notice">
+        Test only websites you own or have explicit permission to assess.
+      </p>
+
+    </section>
+
+    <section id="loading" class="hidden">
+      ANALYZING RESPONSE...
+    </section>
+
+    <section id="error" class="error hidden"></section>
+
+    <section id="results" class="hidden">
+
+      <div class="grid">
+
+        <div class="card">
+          <span>STATUS</span>
+          <strong id="status">—</strong>
+        </div>
+
+        <div class="card">
+          <span>HTTPS</span>
+          <strong id="https">—</strong>
+        </div>
+
+        <div class="card">
+          <span>RESPONSE TIME</span>
+          <strong id="time">—</strong>
+        </div>
+
+        <div class="card">
+          <span>FINDINGS</span>
+          <strong id="count">—</strong>
+        </div>
+
+      </div>
+
+      <section class="panel">
+
+        <h2>SECURITY HEADERS</h2>
+
+        <div id="headers"></div>
+
+      </section>
+
+      <section class="panel">
+
+        <h2>FINDINGS</h2>
+
+        <div id="findings"></div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
