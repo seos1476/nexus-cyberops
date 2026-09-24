@@ -12,7 +12,6 @@
     --text: #e7edf3;
     --muted: #75808c;
     --accent: #7dff9a;
-    --accent-dark: #193b25;
     --danger: #ff6670;
 }
 
@@ -80,7 +79,6 @@ button {
     letter-spacing: 2px;
 }
 
-
 nav {
     display: flex;
     flex-direction: column;
@@ -116,7 +114,6 @@ nav {
     background: #101812;
     border-left: 2px solid var(--accent);
 }
-
 
 .sidebar-footer {
     margin-top: auto;
@@ -187,6 +184,8 @@ nav {
 }
 
 
+/* HERO */
+
 .hero {
     position: relative;
     min-height: 420px;
@@ -208,8 +207,15 @@ nav {
     inset: 0;
     opacity: .2;
     background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+        linear-gradient(
+            var(--border) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            var(--border) 1px,
+            transparent 1px
+        );
     background-size: 50px 50px;
 }
 
@@ -241,7 +247,6 @@ nav {
     margin-bottom: 28px;
 }
 
-
 .primary-btn {
     background: var(--accent);
     color: #061009;
@@ -257,6 +262,8 @@ nav {
 }
 
 
+/* MODULES */
+
 .section-title {
     display: flex;
     justify-content: space-between;
@@ -269,7 +276,6 @@ nav {
 .section-title span {
     color: var(--text);
 }
-
 
 .module-grid {
     display: grid;
@@ -328,6 +334,8 @@ nav {
 }
 
 
+/* STATS */
+
 .stats {
     margin-top: 10px;
     display: grid;
@@ -382,7 +390,7 @@ nav {
 }
 
 
-/* FILE UPLOAD */
+/* UPLOAD */
 
 .upload-box {
     min-height: 270px;
@@ -436,7 +444,14 @@ nav {
 }
 
 
-/* RESULTS */
+/* GENERAL */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* FILE FORENSICS */
 
 .result-panel {
     margin-top: 15px;
@@ -444,18 +459,16 @@ nav {
     border: 1px solid var(--border);
 }
 
-.hidden {
-    display: none !important;
-}
-
-.result-header {
+.result-header,
+.pcap-file-header {
     display: flex;
     justify-content: space-between;
     padding: 20px;
     border-bottom: 1px solid var(--border);
 }
 
-.result-header span {
+.result-header span,
+.pcap-file-header span {
     display: block;
     color: var(--muted);
     font-size: 8px;
@@ -463,16 +476,15 @@ nav {
     margin-bottom: 6px;
 }
 
-.result-header strong {
+.result-header strong,
+.pcap-file-header strong {
     font-family: monospace;
     font-size: 12px;
 }
 
-
 .forensic-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border-bottom: 1px solid var(--border);
 }
 
 .forensic-card {
@@ -498,7 +510,6 @@ nav {
     color: var(--accent);
 }
 
-
 .hash-result {
     padding: 18px 20px;
     border-bottom: 1px solid var(--border);
@@ -518,7 +529,6 @@ nav {
     word-break: break-all;
     line-height: 1.6;
 }
-
 
 .strings-section {
     padding: 20px;
@@ -609,11 +619,142 @@ textarea:focus {
     margin-bottom: 14px;
 }
 
-.jwt-error {
+.jwt-error,
+.pcap-error {
     color: var(--danger);
     font-family: monospace;
     font-size: 10px;
     margin-top: 10px;
+}
+
+
+/* PCAP */
+
+.pcap-results {
+    margin-top: 15px;
+}
+
+.pcap-stats {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border: 1px solid var(--border);
+    background: var(--panel);
+}
+
+.pcap-stats div {
+    padding: 18px;
+    border-right: 1px solid var(--border);
+}
+
+.pcap-stats div:last-child {
+    border-right: 0;
+}
+
+.pcap-stats span {
+    display: block;
+    color: var(--muted);
+    font-family: monospace;
+    font-size: 8px;
+    margin-bottom: 9px;
+}
+
+.pcap-stats strong {
+    font-family: monospace;
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.pcap-columns {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.pcap-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+}
+
+.panel-heading {
+    padding: 15px 18px;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.protocol-row,
+.endpoint-row {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-family: monospace;
+    font-size: 10px;
+}
+
+.protocol-row:last-child,
+.endpoint-row:last-child {
+    border-bottom: 0;
+}
+
+.protocol-name,
+.endpoint-name {
+    color: var(--text);
+}
+
+.protocol-value,
+.endpoint-value {
+    color: var(--accent);
+}
+
+.packet-panel {
+    margin-top: 15px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background: #10151c;
+    color: var(--muted);
+    font-family: monospace;
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    font-family: monospace;
+    font-size: 10px;
+    color: #b9c4cf;
+}
+
+tr:hover td {
+    background: #11171e;
+}
+
+td:nth-child(5) {
+    color: var(--accent);
 }
 
 
@@ -703,26 +844,34 @@ textarea:focus {
 
 /* RESPONSIVE */
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
 
-    .sidebar {
-        width: 190px;
+    .pcap-stats {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .module-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+}
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .jwt-layout,
+    .pcap-columns {
+        grid-template-columns: 1fr;
+    }
+
     .labs-grid {
         grid-template-columns: 1fr;
     }
 
-    .jwt-layout {
-        grid-template-columns: 1fr;
-    }
-
 }
-
 
 @media (max-width: 650px) {
 
@@ -769,16 +918,19 @@ textarea:focus {
     .module-grid,
     .stats,
     .forensic-grid,
-    .about-grid {
+    .about-grid,
+    .pcap-stats {
         grid-template-columns: 1fr;
     }
 
-    .stats div {
+    .stats div,
+    .pcap-stats div {
         border-right: 0;
         border-bottom: 1px solid var(--border);
     }
 
-    .stats div:last-child {
+    .stats div:last-child,
+    .pcap-stats div:last-child {
         border-bottom: 0;
     }
 
