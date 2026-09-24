@@ -1,58 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>NEXUS // CyberOps</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
+
 <div class="app">
+
 
     <!-- SIDEBAR -->
 
     <aside class="sidebar">
 
+
         <div class="brand">
-            <div class="brand-mark">N</div>
+
+            <div class="brand-mark">
+                N
+            </div>
 
             <div>
+
                 <h1>NEXUS</h1>
-                <span>CYBEROPS</span>
+
+                <span>
+                    CYBEROPS
+                </span>
+
             </div>
+
         </div>
 
 
         <nav>
 
-            <button class="nav-btn active" data-page="dashboard">
+
+            <button
+                class="nav-btn active"
+                data-page="dashboard"
+            >
+
                 <span>01</span>
+
                 Dashboard
+
             </button>
 
-            <button class="nav-btn" data-page="hash">
+
+            <button
+                class="nav-btn"
+                data-page="hash"
+            >
+
                 <span>02</span>
+
                 File Forensics
+
             </button>
 
-            <button class="nav-btn" data-page="jwt">
+
+            <button
+                class="nav-btn"
+                data-page="jwt"
+            >
+
                 <span>03</span>
+
                 JWT Inspector
+
             </button>
 
-            <button class="nav-btn" data-page="labs">
+
+            <button
+                class="nav-btn"
+                data-page="pcap"
+            >
+
                 <span>04</span>
-                Cyber Labs
+
+                PCAP Analyzer
+
             </button>
 
-            <button class="nav-btn" data-page="about">
+
+            <button
+                class="nav-btn"
+                data-page="labs"
+            >
+
                 <span>05</span>
-                About
+
+                Cyber Labs
+
             </button>
+
+
+            <button
+                class="nav-btn"
+                data-page="about"
+            >
+
+                <span>06</span>
+
+                About
+
+            </button>
+
 
         </nav>
 
@@ -62,25 +133,43 @@
             <div class="status-dot"></div>
 
             <div>
-                <strong>SYSTEM ONLINE</strong>
-                <small>LOCAL PROCESSING</small>
+
+                <strong>
+                    SYSTEM ONLINE
+                </strong>
+
+                <small>
+                    LOCAL PROCESSING
+                </small>
+
             </div>
 
         </div>
 
+
     </aside>
+
 
 
     <!-- MAIN -->
 
     <main class="main">
 
+
         <header class="topbar">
 
             <div>
-                <span class="terminal-label">NEXUS://</span>
-                <span id="current-page">DASHBOARD</span>
+
+                <span class="terminal-label">
+                    NEXUS://
+                </span>
+
+                <span id="current-page">
+                    DASHBOARD
+                </span>
+
             </div>
+
 
             <div id="clock">
                 --:--:--
@@ -89,13 +178,19 @@
         </header>
 
 
+
         <!-- ================= DASHBOARD ================= -->
 
-        <section class="page active" id="dashboard">
+        <section
+            class="page active"
+            id="dashboard"
+        >
+
 
             <div class="hero">
 
                 <div class="hero-grid"></div>
+
 
                 <div class="hero-content">
 
@@ -103,20 +198,33 @@
                         BROWSER-BASED SECURITY WORKSTATION
                     </span>
 
+
                     <h2>
+
                         Analyze.<br>
                         Investigate.<br>
                         Understand.
+
                     </h2>
 
+
                     <p>
-                        A local-first cybersecurity toolkit for
-                        defensive research, digital forensics and
-                        controlled security experimentation.
+
+                        A local-first cybersecurity
+                        toolkit for defensive research,
+                        digital forensics and controlled
+                        security experimentation.
+
                     </p>
 
-                    <button class="primary-btn" data-open="hash">
+
+                    <button
+                        class="primary-btn"
+                        data-open="hash"
+                    >
+
                         OPEN FILE FORENSICS →
+
                     </button>
 
                 </div>
@@ -124,117 +232,234 @@
             </div>
 
 
+
             <div class="section-title">
-                <span>ACTIVE MODULES</span>
-                <small>05 AVAILABLE</small>
+
+                <span>
+                    ACTIVE MODULES
+                </span>
+
+                <small>
+                    06 AVAILABLE
+                </small>
+
             </div>
+
 
 
             <div class="module-grid">
 
-                <article class="module-card" data-open="hash">
 
-                    <div class="module-number">01</div>
+                <article
+                    class="module-card"
+                    data-open="hash"
+                >
 
-                    <h3>FILE FORENSICS</h3>
+                    <div class="module-number">
+                        01
+                    </div>
+
+                    <h3>
+                        FILE FORENSICS
+                    </h3>
 
                     <p>
-                        Hash files, inspect binary signatures,
-                        calculate entropy and extract strings.
+                        Hash files, inspect binary
+                        signatures, calculate entropy
+                        and extract strings.
                     </p>
 
-                    <span class="module-arrow">→</span>
+                    <span class="module-arrow">
+                        →
+                    </span>
 
                 </article>
 
 
-                <article class="module-card" data-open="jwt">
 
-                    <div class="module-number">02</div>
+                <article
+                    class="module-card"
+                    data-open="jwt"
+                >
 
-                    <h3>JWT INSPECTOR</h3>
+                    <div class="module-number">
+                        02
+                    </div>
+
+                    <h3>
+                        JWT INSPECTOR
+                    </h3>
 
                     <p>
-                        Decode JSON Web Tokens locally and inspect
-                        their header and payload structure.
+                        Decode JSON Web Tokens locally
+                        and inspect their structure.
                     </p>
 
-                    <span class="module-arrow">→</span>
+                    <span class="module-arrow">
+                        →
+                    </span>
 
                 </article>
 
 
-                <article class="module-card" data-open="labs">
 
-                    <div class="module-number">03</div>
+                <article
+                    class="module-card"
+                    data-open="pcap"
+                >
 
-                    <h3>CYBER LABS</h3>
+                    <div class="module-number">
+                        03
+                    </div>
+
+                    <h3>
+                        PCAP ANALYZER
+                    </h3>
 
                     <p>
-                        Learn security concepts through controlled
-                        browser-based challenges.
+                        Analyze packet captures directly
+                        inside the browser.
                     </p>
 
-                    <span class="module-arrow">→</span>
+                    <span class="module-arrow">
+                        →
+                    </span>
 
                 </article>
+
+
+
+                <article
+                    class="module-card"
+                    data-open="labs"
+                >
+
+                    <div class="module-number">
+                        04
+                    </div>
+
+                    <h3>
+                        CYBER LABS
+                    </h3>
+
+                    <p>
+                        Controlled educational security
+                        experiments.
+                    </p>
+
+                    <span class="module-arrow">
+                        →
+                    </span>
+
+                </article>
+
 
 
                 <article class="module-card">
 
-                    <div class="module-number">04</div>
+                    <div class="module-number">
+                        05
+                    </div>
 
-                    <h3>PCAP ANALYSIS</h3>
-
-                    <p>
-                        Network traffic analysis module.
-                    </p>
-
-                    <span class="coming">NEXT MODULE</span>
-
-                </article>
-
-
-                <article class="module-card">
-
-                    <div class="module-number">05</div>
-
-                    <h3>SECURITY HEADERS</h3>
+                    <h3>
+                        SECURITY HEADERS
+                    </h3>
 
                     <p>
                         Defensive web security inspection.
                     </p>
 
-                    <span class="coming">NEXT MODULE</span>
+                    <span class="coming">
+                        NEXT MODULE
+                    </span>
 
                 </article>
 
+
+
+                <article class="module-card">
+
+                    <div class="module-number">
+                        06
+                    </div>
+
+                    <h3>
+                        THREAT INTELLIGENCE
+                    </h3>
+
+                    <p>
+                        Future indicator and artifact
+                        analysis module.
+                    </p>
+
+                    <span class="coming">
+                        NEXT MODULE
+                    </span>
+
+                </article>
+
+
             </div>
+
 
 
             <div class="stats">
 
-                <div>
-                    <span>PROCESSING</span>
-                    <strong>LOCAL</strong>
-                </div>
 
                 <div>
-                    <span>NETWORK</span>
-                    <strong>NOT REQUIRED</strong>
+
+                    <span>
+                        PROCESSING
+                    </span>
+
+                    <strong>
+                        LOCAL
+                    </strong>
+
                 </div>
 
-                <div>
-                    <span>BUILD</span>
-                    <strong>0.2.0</strong>
-                </div>
 
                 <div>
-                    <span>STATUS</span>
-                    <strong class="green">ONLINE</strong>
+
+                    <span>
+                        NETWORK
+                    </span>
+
+                    <strong>
+                        NOT REQUIRED
+                    </strong>
+
                 </div>
+
+
+                <div>
+
+                    <span>
+                        BUILD
+                    </span>
+
+                    <strong>
+                        0.3.0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        STATUS
+                    </span>
+
+                    <strong class="green">
+                        ONLINE
+                    </strong>
+
+                </div>
+
 
             </div>
+
 
         </section>
 
@@ -242,29 +467,48 @@
 
         <!-- ================= FILE FORENSICS ================= -->
 
-        <section class="page" id="hash">
+        <section
+            class="page"
+            id="hash"
+        >
+
 
             <div class="page-heading">
 
-                <span class="eyebrow">MODULE 01</span>
+                <span class="eyebrow">
+                    MODULE 01
+                </span>
 
-                <h2>FILE FORENSICS</h2>
+                <h2>
+                    FILE FORENSICS
+                </h2>
 
                 <p>
-                    Inspect files directly inside your browser.
-                    Files are not uploaded to a server.
+                    Inspect files directly inside
+                    your browser.
                 </p>
 
             </div>
 
 
-            <div class="upload-box" id="drop-zone">
 
-                <div class="upload-icon">↑</div>
+            <div
+                class="upload-box"
+                id="drop-zone"
+            >
 
-                <h3>DROP FILE HERE</h3>
+                <div class="upload-icon">
+                    ↑
+                </div>
 
-                <p>or select a file from your device</p>
+                <h3>
+                    DROP FILE HERE
+                </h3>
+
+                <p>
+                    or select a file from your device
+                </p>
+
 
                 <label class="file-btn">
 
@@ -278,6 +522,7 @@
 
                 </label>
 
+
                 <small>
                     LOCAL BROWSER PROCESSING
                 </small>
@@ -285,58 +530,93 @@
             </div>
 
 
+
             <div
                 class="result-panel hidden"
                 id="hash-results"
             >
 
+
                 <div class="result-header">
 
-                    <div>
-                        <span>FILE</span>
-                        <strong id="file-name">—</strong>
-                    </div>
 
                     <div>
-                        <span>SIZE</span>
-                        <strong id="file-size">—</strong>
+
+                        <span>
+                            FILE
+                        </span>
+
+                        <strong id="file-name">
+                            —
+                        </strong>
+
                     </div>
+
+
+                    <div>
+
+                        <span>
+                            SIZE
+                        </span>
+
+                        <strong id="file-size">
+                            —
+                        </strong>
+
+                    </div>
+
 
                 </div>
 
 
+
                 <div class="forensic-grid">
 
+
                     <div class="forensic-card">
 
-                        <span>FILE TYPE</span>
+                        <span>
+                            FILE TYPE
+                        </span>
 
-                        <strong id="file-type">—</strong>
+                        <strong id="file-type">
+                            —
+                        </strong>
 
                     </div>
 
 
                     <div class="forensic-card">
 
-                        <span>MIME TYPE</span>
+                        <span>
+                            MIME TYPE
+                        </span>
 
-                        <strong id="mime-type">—</strong>
-
-                    </div>
-
-
-                    <div class="forensic-card">
-
-                        <span>ENTROPY</span>
-
-                        <strong id="entropy">—</strong>
+                        <strong id="mime-type">
+                            —
+                        </strong>
 
                     </div>
 
 
                     <div class="forensic-card">
 
-                        <span>MAGIC BYTES</span>
+                        <span>
+                            ENTROPY
+                        </span>
+
+                        <strong id="entropy">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="forensic-card">
+
+                        <span>
+                            MAGIC BYTES
+                        </span>
 
                         <strong
                             id="magic-bytes"
@@ -347,12 +627,16 @@
 
                     </div>
 
+
                 </div>
+
 
 
                 <div class="hash-result">
 
-                    <label>SHA-256</label>
+                    <label>
+                        SHA-256
+                    </label>
 
                     <div
                         class="hash-value"
@@ -366,7 +650,9 @@
 
                 <div class="hash-result">
 
-                    <label>SHA-384</label>
+                    <label>
+                        SHA-384
+                    </label>
 
                     <div
                         class="hash-value"
@@ -380,7 +666,9 @@
 
                 <div class="hash-result">
 
-                    <label>SHA-512</label>
+                    <label>
+                        SHA-512
+                    </label>
 
                     <div
                         class="hash-value"
@@ -392,17 +680,22 @@
                 </div>
 
 
+
                 <div class="strings-section">
 
                     <div class="strings-heading">
                         PRINTABLE STRINGS
                     </div>
 
-                    <pre id="file-strings">—</pre>
+                    <pre id="file-strings">
+—
+                    </pre>
 
                 </div>
 
+
             </div>
+
 
         </section>
 
@@ -410,49 +703,68 @@
 
         <!-- ================= JWT ================= -->
 
-        <section class="page" id="jwt">
+        <section
+            class="page"
+            id="jwt"
+        >
+
 
             <div class="page-heading">
 
-                <span class="eyebrow">MODULE 02</span>
+                <span class="eyebrow">
+                    MODULE 02
+                </span>
 
-                <h2>JWT INSPECTOR</h2>
+                <h2>
+                    JWT INSPECTOR
+                </h2>
 
                 <p>
-                    Decode JWT header and payload locally.
-                    No token is sent anywhere.
+                    Decode JWT structure locally.
                 </p>
 
             </div>
 
 
+
             <div class="jwt-layout">
+
 
                 <div class="jwt-input">
 
-                    <label>JWT TOKEN</label>
+                    <label>
+                        JWT TOKEN
+                    </label>
+
 
                     <textarea
                         id="jwt-input"
                         placeholder="Paste a JWT here..."
                     ></textarea>
 
+
                     <button
                         class="primary-btn"
                         id="decode-jwt"
                     >
+
                         DECODE TOKEN →
+
                     </button>
+
 
                     <div
                         class="jwt-error"
                         id="jwt-error"
                     ></div>
 
+
                 </div>
 
 
+
                 <div class="jwt-output">
+
 
                     <div class="json-box">
 
@@ -479,9 +791,311 @@
 
                     </div>
 
+
                 </div>
 
+
             </div>
+
+
+        </section>
+
+
+
+        <!-- ================= PCAP ================= -->
+
+        <section
+            class="page"
+            id="pcap"
+        >
+
+
+            <div class="page-heading">
+
+                <span class="eyebrow">
+                    MODULE 03
+                </span>
+
+                <h2>
+                    PCAP ANALYZER
+                </h2>
+
+                <p>
+                    Analyze packet captures locally
+                    without uploading them.
+                </p>
+
+            </div>
+
+
+
+            <div
+                class="upload-box"
+                id="pcap-drop-zone"
+            >
+
+                <div class="upload-icon">
+                    ◈
+                </div>
+
+                <h3>
+                    DROP PCAP / PCAPNG
+                </h3>
+
+                <p>
+                    Upload a network capture for analysis
+                </p>
+
+
+                <label class="file-btn">
+
+                    SELECT CAPTURE
+
+                    <input
+                        type="file"
+                        id="pcap-input"
+                        accept=".pcap,.pcapng,.cap"
+                        hidden
+                    >
+
+                </label>
+
+
+                <small>
+                    ANALYSIS RUNS LOCALLY IN YOUR BROWSER
+                </small>
+
+            </div>
+
+
+
+            <div
+                id="pcap-error"
+                class="pcap-error"
+            ></div>
+
+
+
+            <div
+                class="pcap-results hidden"
+                id="pcap-results"
+            >
+
+
+                <div class="pcap-file-header">
+
+                    <div>
+
+                        <span>
+                            CAPTURE
+                        </span>
+
+                        <strong id="pcap-file-name">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            FORMAT
+                        </span>
+
+                        <strong id="pcap-format">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="pcap-stats">
+
+
+                    <div>
+
+                        <span>
+                            PACKETS
+                        </span>
+
+                        <strong id="packet-count">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            BYTES
+                        </span>
+
+                        <strong id="packet-bytes">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            IPv4
+                        </span>
+
+                        <strong id="ipv4-count">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            TCP
+                        </span>
+
+                        <strong id="tcp-count">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            UDP
+                        </span>
+
+                        <strong id="udp-count">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            ICMP
+                        </span>
+
+                        <strong id="icmp-count">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="pcap-columns">
+
+
+                    <div class="pcap-panel">
+
+                        <div class="panel-heading">
+                            PROTOCOL DISTRIBUTION
+                        </div>
+
+                        <div id="protocol-stats">
+                            —
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="pcap-panel">
+
+                        <div class="panel-heading">
+                            TOP ENDPOINTS
+                        </div>
+
+                        <div id="endpoint-stats">
+                            —
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="pcap-panel packet-panel">
+
+                    <div class="panel-heading">
+
+                        PACKET TIMELINE
+
+                        <span id="packet-range">
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        #
+                                    </th>
+
+                                    <th>
+                                        TIME
+                                    </th>
+
+                                    <th>
+                                        SOURCE
+                                    </th>
+
+                                    <th>
+                                        DESTINATION
+                                    </th>
+
+                                    <th>
+                                        PROTOCOL
+                                    </th>
+
+                                    <th>
+                                        LENGTH
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody
+                                id="packet-table"
+                            ></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
 
         </section>
 
@@ -489,13 +1103,21 @@
 
         <!-- ================= LABS ================= -->
 
-        <section class="page" id="labs">
+        <section
+            class="page"
+            id="labs"
+        >
+
 
             <div class="page-heading">
 
-                <span class="eyebrow">MODULE 03</span>
+                <span class="eyebrow">
+                    MODULE 04
+                </span>
 
-                <h2>CYBER LABS</h2>
+                <h2>
+                    CYBER LABS
+                </h2>
 
                 <p>
                     Controlled educational security experiments.
@@ -504,17 +1126,23 @@
             </div>
 
 
+
             <div class="labs-grid">
+
 
                 <article class="lab-card">
 
-                    <span>LAB 01</span>
+                    <span>
+                        LAB 01
+                    </span>
 
-                    <h3>HASH DETECTION</h3>
+                    <h3>
+                        HASH DETECTION
+                    </h3>
 
                     <p>
-                        Understand how cryptographic hashes identify
-                        data without exposing the original content.
+                        Understand how cryptographic hashes
+                        identify data.
                     </p>
 
                     <button
@@ -527,15 +1155,19 @@
                 </article>
 
 
+
                 <article class="lab-card">
 
-                    <span>LAB 02</span>
+                    <span>
+                        LAB 02
+                    </span>
 
-                    <h3>JWT STRUCTURE</h3>
+                    <h3>
+                        JWT STRUCTURE
+                    </h3>
 
                     <p>
-                        Explore how JWT headers and payloads are
-                        represented using Base64URL encoding.
+                        Explore JWT headers and payloads.
                     </p>
 
                     <button
@@ -548,27 +1180,34 @@
                 </article>
 
 
+
                 <article class="lab-card">
 
-                    <span>LAB 03</span>
+                    <span>
+                        LAB 03
+                    </span>
 
-                    <h3>ENTROPY</h3>
+                    <h3>
+                        PACKET ANALYSIS
+                    </h3>
 
                     <p>
-                        Learn how randomness measurements can help
-                        analysts understand binary data.
+                        Explore network captures and
+                        protocol behavior.
                     </p>
 
                     <button
                         class="secondary-btn"
-                        data-open="hash"
+                        data-open="pcap"
                     >
                         LAUNCH →
                     </button>
 
                 </article>
 
+
             </div>
+
 
         </section>
 
@@ -576,20 +1215,32 @@
 
         <!-- ================= ABOUT ================= -->
 
-        <section class="page" id="about">
+        <section
+            class="page"
+            id="about"
+        >
+
 
             <div class="page-heading">
 
-                <span class="eyebrow">SYSTEM INFORMATION</span>
+                <span class="eyebrow">
+                    SYSTEM INFORMATION
+                </span>
 
-                <h2>ABOUT NEXUS</h2>
+                <h2>
+                    ABOUT NEXUS
+                </h2>
 
             </div>
 
 
+
             <div class="about-card">
 
-                <h3>NEXUS // CYBEROPS</h3>
+                <h3>
+                    NEXUS // CYBEROPS
+                </h3>
+
 
                 <p>
                     NEXUS is a browser-based cybersecurity
@@ -598,40 +1249,78 @@
                     experimentation.
                 </p>
 
+
                 <p>
-                    The architecture prioritizes local processing
-                    wherever possible. Sensitive files and tokens
-                    processed by the current modules remain inside
-                    the browser.
+                    Current modules process files and network
+                    captures locally in the browser wherever
+                    technically possible.
                 </p>
+
+
 
                 <div class="about-grid">
 
-                    <div>
-                        <span>ARCHITECTURE</span>
-                        <strong>CLIENT-SIDE</strong>
-                    </div>
 
                     <div>
-                        <span>DEPENDENCIES</span>
-                        <strong>MINIMAL</strong>
+
+                        <span>
+                            ARCHITECTURE
+                        </span>
+
+                        <strong>
+                            CLIENT-SIDE
+                        </strong>
+
                     </div>
 
-                    <div>
-                        <span>VERSION</span>
-                        <strong>0.2.0</strong>
-                    </div>
 
                     <div>
-                        <span>LICENSE</span>
-                        <strong>OPEN SOURCE</strong>
+
+                        <span>
+                            NETWORK
+                        </span>
+
+                        <strong>
+                            NOT REQUIRED
+                        </strong>
+
                     </div>
+
+
+                    <div>
+
+                        <span>
+                            VERSION
+                        </span>
+
+                        <strong>
+                            0.3.0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            PROJECT
+                        </span>
+
+                        <strong>
+                            OPEN SOURCE
+                        </strong>
+
+                    </div>
+
 
                 </div>
 
+
             </div>
 
+
         </section>
+
 
     </main>
 
@@ -641,4 +1330,5 @@
 <script src="app.js"></script>
 
 </body>
+
 </html>
