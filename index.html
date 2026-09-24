@@ -11,224 +11,264 @@
 
 <body>
 
-    <div class="app">
+<div class="app">
 
-        <!-- SIDEBAR -->
+    <!-- SIDEBAR -->
 
-        <aside class="sidebar">
+    <aside class="sidebar">
 
-            <div class="brand">
-                <div class="logo">N</div>
+        <div class="brand">
+            <div class="brand-mark">N</div>
 
-                <div>
-                    <h1>NEXUS</h1>
-                    <span>CYBEROPS</span>
-                </div>
+            <div>
+                <h1>NEXUS</h1>
+                <span>CYBEROPS</span>
+            </div>
+        </div>
+
+
+        <nav>
+
+            <button class="nav-btn active" data-page="dashboard">
+                <span>01</span>
+                Dashboard
+            </button>
+
+            <button class="nav-btn" data-page="hash">
+                <span>02</span>
+                File Forensics
+            </button>
+
+            <button class="nav-btn" data-page="jwt">
+                <span>03</span>
+                JWT Inspector
+            </button>
+
+            <button class="nav-btn" data-page="labs">
+                <span>04</span>
+                Cyber Labs
+            </button>
+
+            <button class="nav-btn" data-page="about">
+                <span>05</span>
+                About
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="status-dot"></div>
+
+            <div>
+                <strong>SYSTEM ONLINE</strong>
+                <small>LOCAL PROCESSING</small>
             </div>
 
-            <nav>
+        </div>
 
-                <button class="nav-button active" data-page="dashboard">
-                    ◈ Dashboard
-                </button>
+    </aside>
 
-                <button class="nav-button" data-page="hash">
-                    # Hash Analyzer
-                </button>
 
-                <button class="nav-button" data-page="jwt">
-                    ◆ JWT Inspector
-                </button>
+    <!-- MAIN -->
 
-                <button class="nav-button" data-page="labs">
-                    ◉ Cyber Labs
-                </button>
+    <main class="main">
 
-                <button class="nav-button" data-page="about">
-                    ? About
-                </button>
+        <header class="topbar">
 
-            </nav>
-
-            <div class="sidebar-bottom">
-
-                <div class="status">
-                    <span class="status-dot"></span>
-                    SYSTEM ONLINE
-                </div>
-
-                <div class="version">
-                    NEXUS v0.1.0
-                </div>
-
+            <div>
+                <span class="terminal-label">NEXUS://</span>
+                <span id="current-page">DASHBOARD</span>
             </div>
 
-        </aside>
+            <div id="clock">
+                --:--:--
+            </div>
+
+        </header>
 
 
-        <!-- MAIN CONTENT -->
+        <!-- ================= DASHBOARD ================= -->
 
-        <main class="main">
+        <section class="page active" id="dashboard">
 
-            <header class="topbar">
+            <div class="hero">
 
-                <div>
-                    <p class="eyebrow">OPEN SECURITY WORKSTATION</p>
-                    <h2 id="page-title">Dashboard</h2>
-                </div>
+                <div class="hero-grid"></div>
 
-                <div class="system-time" id="clock">
-                    --:--:--
-                </div>
+                <div class="hero-content">
 
-            </header>
+                    <span class="eyebrow">
+                        BROWSER-BASED SECURITY WORKSTATION
+                    </span>
 
-
-            <!-- DASHBOARD -->
-
-            <section class="page active" id="dashboard">
-
-                <div class="hero">
-
-                    <div>
-                        <p class="eyebrow">WELCOME TO NEXUS</p>
-
-                        <h3>
-                            Security analysis.<br>
-                            <span>Inside your browser.</span>
-                        </h3>
-
-                        <p class="hero-description">
-                            An open-source cybersecurity workstation
-                            designed for analysis, education and authorized
-                            security research.
-                        </p>
-                    </div>
-
-                    <div class="hero-symbol">
-                        N
-                    </div>
-
-                </div>
-
-
-                <div class="stats">
-
-                    <div class="stat-card">
-                        <span>MODULES</span>
-                        <strong>04</strong>
-                    </div>
-
-                    <div class="stat-card">
-                        <span>LABS</span>
-                        <strong>03</strong>
-                    </div>
-
-                    <div class="stat-card">
-                        <span>VERSION</span>
-                        <strong>0.1</strong>
-                    </div>
-
-                    <div class="stat-card">
-                        <span>BACKEND</span>
-                        <strong>NONE</strong>
-                    </div>
-
-                </div>
-
-
-                <div class="section-heading">
-                    <span>AVAILABLE MODULES</span>
-                </div>
-
-
-                <div class="module-grid">
-
-                    <button class="module-card" data-open="hash">
-
-                        <div class="module-icon">#</div>
-
-                        <h4>Hash Analyzer</h4>
-
-                        <p>
-                            Calculate cryptographic hashes
-                            directly in your browser.
-                        </p>
-
-                        <span class="module-link">
-                            OPEN →
-                        </span>
-
-                    </button>
-
-
-                    <button class="module-card" data-open="jwt">
-
-                        <div class="module-icon">◆</div>
-
-                        <h4>JWT Inspector</h4>
-
-                        <p>
-                            Decode and inspect JSON Web Tokens
-                            locally.
-                        </p>
-
-                        <span class="module-link">
-                            OPEN →
-                        </span>
-
-                    </button>
-
-
-                    <button class="module-card" data-open="labs">
-
-                        <div class="module-icon">◉</div>
-
-                        <h4>Cyber Labs</h4>
-
-                        <p>
-                            Solve controlled cybersecurity
-                            investigation challenges.
-                        </p>
-
-                        <span class="module-link">
-                            OPEN →
-                        </span>
-
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- HASH ANALYZER -->
-
-            <section class="page" id="hash">
-
-                <div class="page-intro">
-
-                    <p class="eyebrow">FORENSICS / CRYPTOGRAPHY</p>
-
-                    <h3>Hash Analyzer</h3>
+                    <h2>
+                        Analyze.<br>
+                        Investigate.<br>
+                        Understand.
+                    </h2>
 
                     <p>
-                        Drop a file below. NEXUS calculates its
-                        cryptographic fingerprints locally.
+                        A local-first cybersecurity toolkit for
+                        defensive research, digital forensics and
+                        controlled security experimentation.
                     </p>
+
+                    <button class="primary-btn" data-open="hash">
+                        OPEN FILE FORENSICS →
+                    </button>
 
                 </div>
 
+            </div>
 
-                <div class="drop-zone" id="drop-zone">
 
-                    <div class="upload-symbol">
-                        ↑
-                    </div>
+            <div class="section-title">
+                <span>ACTIVE MODULES</span>
+                <small>05 AVAILABLE</small>
+            </div>
 
-                    <h4>DROP FILE HERE</h4>
 
-                    <p>or click to select a file</p>
+            <div class="module-grid">
+
+                <article class="module-card" data-open="hash">
+
+                    <div class="module-number">01</div>
+
+                    <h3>FILE FORENSICS</h3>
+
+                    <p>
+                        Hash files, inspect binary signatures,
+                        calculate entropy and extract strings.
+                    </p>
+
+                    <span class="module-arrow">→</span>
+
+                </article>
+
+
+                <article class="module-card" data-open="jwt">
+
+                    <div class="module-number">02</div>
+
+                    <h3>JWT INSPECTOR</h3>
+
+                    <p>
+                        Decode JSON Web Tokens locally and inspect
+                        their header and payload structure.
+                    </p>
+
+                    <span class="module-arrow">→</span>
+
+                </article>
+
+
+                <article class="module-card" data-open="labs">
+
+                    <div class="module-number">03</div>
+
+                    <h3>CYBER LABS</h3>
+
+                    <p>
+                        Learn security concepts through controlled
+                        browser-based challenges.
+                    </p>
+
+                    <span class="module-arrow">→</span>
+
+                </article>
+
+
+                <article class="module-card">
+
+                    <div class="module-number">04</div>
+
+                    <h3>PCAP ANALYSIS</h3>
+
+                    <p>
+                        Network traffic analysis module.
+                    </p>
+
+                    <span class="coming">NEXT MODULE</span>
+
+                </article>
+
+
+                <article class="module-card">
+
+                    <div class="module-number">05</div>
+
+                    <h3>SECURITY HEADERS</h3>
+
+                    <p>
+                        Defensive web security inspection.
+                    </p>
+
+                    <span class="coming">NEXT MODULE</span>
+
+                </article>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div>
+                    <span>PROCESSING</span>
+                    <strong>LOCAL</strong>
+                </div>
+
+                <div>
+                    <span>NETWORK</span>
+                    <strong>NOT REQUIRED</strong>
+                </div>
+
+                <div>
+                    <span>BUILD</span>
+                    <strong>0.2.0</strong>
+                </div>
+
+                <div>
+                    <span>STATUS</span>
+                    <strong class="green">ONLINE</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FILE FORENSICS ================= -->
+
+        <section class="page" id="hash">
+
+            <div class="page-heading">
+
+                <span class="eyebrow">MODULE 01</span>
+
+                <h2>FILE FORENSICS</h2>
+
+                <p>
+                    Inspect files directly inside your browser.
+                    Files are not uploaded to a server.
+                </p>
+
+            </div>
+
+
+            <div class="upload-box" id="drop-zone">
+
+                <div class="upload-icon">↑</div>
+
+                <h3>DROP FILE HERE</h3>
+
+                <p>or select a file from your device</p>
+
+                <label class="file-btn">
+
+                    SELECT FILE
 
                     <input
                         type="file"
@@ -236,266 +276,369 @@
                         hidden
                     >
 
-                    <button
-                        class="primary-button"
-                        id="choose-file"
+                </label>
+
+                <small>
+                    LOCAL BROWSER PROCESSING
+                </small>
+
+            </div>
+
+
+            <div
+                class="result-panel hidden"
+                id="hash-results"
+            >
+
+                <div class="result-header">
+
+                    <div>
+                        <span>FILE</span>
+                        <strong id="file-name">—</strong>
+                    </div>
+
+                    <div>
+                        <span>SIZE</span>
+                        <strong id="file-size">—</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="forensic-grid">
+
+                    <div class="forensic-card">
+
+                        <span>FILE TYPE</span>
+
+                        <strong id="file-type">—</strong>
+
+                    </div>
+
+
+                    <div class="forensic-card">
+
+                        <span>MIME TYPE</span>
+
+                        <strong id="mime-type">—</strong>
+
+                    </div>
+
+
+                    <div class="forensic-card">
+
+                        <span>ENTROPY</span>
+
+                        <strong id="entropy">—</strong>
+
+                    </div>
+
+
+                    <div class="forensic-card">
+
+                        <span>MAGIC BYTES</span>
+
+                        <strong
+                            id="magic-bytes"
+                            class="mono"
+                        >
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hash-result">
+
+                    <label>SHA-256</label>
+
+                    <div
+                        class="hash-value"
+                        id="sha256"
                     >
-                        SELECT FILE
+                        —
+                    </div>
+
+                </div>
+
+
+                <div class="hash-result">
+
+                    <label>SHA-384</label>
+
+                    <div
+                        class="hash-value"
+                        id="sha384"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+
+                <div class="hash-result">
+
+                    <label>SHA-512</label>
+
+                    <div
+                        class="hash-value"
+                        id="sha512"
+                    >
+                        —
+                    </div>
+
+                </div>
+
+
+                <div class="strings-section">
+
+                    <div class="strings-heading">
+                        PRINTABLE STRINGS
+                    </div>
+
+                    <pre id="file-strings">—</pre>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= JWT ================= -->
+
+        <section class="page" id="jwt">
+
+            <div class="page-heading">
+
+                <span class="eyebrow">MODULE 02</span>
+
+                <h2>JWT INSPECTOR</h2>
+
+                <p>
+                    Decode JWT header and payload locally.
+                    No token is sent anywhere.
+                </p>
+
+            </div>
+
+
+            <div class="jwt-layout">
+
+                <div class="jwt-input">
+
+                    <label>JWT TOKEN</label>
+
+                    <textarea
+                        id="jwt-input"
+                        placeholder="Paste a JWT here..."
+                    ></textarea>
+
+                    <button
+                        class="primary-btn"
+                        id="decode-jwt"
+                    >
+                        DECODE TOKEN →
                     </button>
 
-                </div>
-
-
-                <div
-                    class="result-panel hidden"
-                    id="hash-results"
-                >
-
-                    <div class="result-header">
-
-                        <div>
-                            <span>FILE</span>
-                            <strong id="file-name">—</strong>
-                        </div>
-
-                        <div>
-                            <span>SIZE</span>
-                            <strong id="file-size">—</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="hash-result">
-
-                        <label>SHA-256</label>
-
-                        <div class="hash-value" id="sha256">
-                            —
-                        </div>
-
-                    </div>
-
-
-                    <div class="hash-result">
-
-                        <label>SHA-384</label>
-
-                        <div class="hash-value" id="sha384">
-                            —
-                        </div>
-
-                    </div>
-
-
-                    <div class="hash-result">
-
-                        <label>SHA-512</label>
-
-                        <div class="hash-value" id="sha512">
-                            —
-                        </div>
-
-                    </div>
+                    <div
+                        class="jwt-error"
+                        id="jwt-error"
+                    ></div>
 
                 </div>
-
-            </section>
-
-
-            <!-- JWT -->
-
-            <section class="page" id="jwt">
-
-                <div class="page-intro">
-
-                    <p class="eyebrow">WEB SECURITY</p>
-
-                    <h3>JWT Inspector</h3>
-
-                    <p>
-                        Decode a JSON Web Token locally.
-                        Decoding does not verify the signature.
-                    </p>
-
-                </div>
-
-
-                <textarea
-                    id="jwt-input"
-                    class="code-input"
-                    placeholder="Paste a JWT here..."
-                ></textarea>
-
-
-                <button
-                    class="primary-button"
-                    id="decode-jwt"
-                >
-                    DECODE TOKEN
-                </button>
 
 
                 <div class="jwt-output">
 
-                    <div class="jwt-card">
+                    <div class="json-box">
 
-                        <span>HEADER</span>
+                        <div class="json-title">
+                            HEADER
+                        </div>
 
-                        <pre id="jwt-header">{ }</pre>
+                        <pre id="jwt-header">
+—
+                        </pre>
 
                     </div>
 
 
-                    <div class="jwt-card">
+                    <div class="json-box">
 
-                        <span>PAYLOAD</span>
+                        <div class="json-title">
+                            PAYLOAD
+                        </div>
 
-                        <pre id="jwt-payload">{ }</pre>
+                        <pre id="jwt-payload">
+—
+                        </pre>
 
                     </div>
 
                 </div>
 
-            </section>
+            </div>
+
+        </section>
 
 
-            <!-- LABS -->
 
-            <section class="page" id="labs">
+        <!-- ================= LABS ================= -->
 
-                <div class="page-intro">
+        <section class="page" id="labs">
 
-                    <p class="eyebrow">TRAINING ENVIRONMENT</p>
+            <div class="page-heading">
 
-                    <h3>Cyber Labs</h3>
+                <span class="eyebrow">MODULE 03</span>
+
+                <h2>CYBER LABS</h2>
+
+                <p>
+                    Controlled educational security experiments.
+                </p>
+
+            </div>
+
+
+            <div class="labs-grid">
+
+                <article class="lab-card">
+
+                    <span>LAB 01</span>
+
+                    <h3>HASH DETECTION</h3>
 
                     <p>
-                        Controlled challenges for learning
-                        cybersecurity concepts safely.
+                        Understand how cryptographic hashes identify
+                        data without exposing the original content.
                     </p>
 
-                </div>
+                    <button
+                        class="secondary-btn"
+                        data-open="hash"
+                    >
+                        LAUNCH →
+                    </button>
+
+                </article>
 
 
-                <div class="lab-grid">
+                <article class="lab-card">
 
-                    <div class="lab-card">
+                    <span>LAB 02</span>
 
-                        <div class="lab-number">
-                            01
-                        </div>
-
-                        <h4>Hash Detective</h4>
-
-                        <p>
-                            Identify the correct hash from
-                            a set of evidence.
-                        </p>
-
-                        <button class="secondary-button">
-                            START LAB
-                        </button>
-
-                    </div>
-
-
-                    <div class="lab-card">
-
-                        <div class="lab-number">
-                            02
-                        </div>
-
-                        <h4>JWT Investigation</h4>
-
-                        <p>
-                            Examine token claims and determine
-                            what information they reveal.
-                        </p>
-
-                        <button class="secondary-button">
-                            START LAB
-                        </button>
-
-                    </div>
-
-
-                    <div class="lab-card">
-
-                        <div class="lab-number">
-                            03
-                        </div>
-
-                        <h4>Metadata Mystery</h4>
-
-                        <p>
-                            Investigate a deliberately prepared
-                            digital artifact.
-                        </p>
-
-                        <button class="secondary-button">
-                            START LAB
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- ABOUT -->
-
-            <section class="page" id="about">
-
-                <div class="page-intro">
-
-                    <p class="eyebrow">PROJECT</p>
-
-                    <h3>About NEXUS</h3>
+                    <h3>JWT STRUCTURE</h3>
 
                     <p>
-                        NEXUS is an open-source browser-based
-                        cybersecurity workstation.
+                        Explore how JWT headers and payloads are
+                        represented using Base64URL encoding.
                     </p>
 
+                    <button
+                        class="secondary-btn"
+                        data-open="jwt"
+                    >
+                        LAUNCH →
+                    </button>
+
+                </article>
+
+
+                <article class="lab-card">
+
+                    <span>LAB 03</span>
+
+                    <h3>ENTROPY</h3>
+
+                    <p>
+                        Learn how randomness measurements can help
+                        analysts understand binary data.
+                    </p>
+
+                    <button
+                        class="secondary-btn"
+                        data-open="hash"
+                    >
+                        LAUNCH →
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="page" id="about">
+
+            <div class="page-heading">
+
+                <span class="eyebrow">SYSTEM INFORMATION</span>
+
+                <h2>ABOUT NEXUS</h2>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3>NEXUS // CYBEROPS</h3>
+
+                <p>
+                    NEXUS is a browser-based cybersecurity
+                    workstation designed for defensive security
+                    learning, digital forensics and controlled
+                    experimentation.
+                </p>
+
+                <p>
+                    The architecture prioritizes local processing
+                    wherever possible. Sensitive files and tokens
+                    processed by the current modules remain inside
+                    the browser.
+                </p>
+
+                <div class="about-grid">
+
+                    <div>
+                        <span>ARCHITECTURE</span>
+                        <strong>CLIENT-SIDE</strong>
+                    </div>
+
+                    <div>
+                        <span>DEPENDENCIES</span>
+                        <strong>MINIMAL</strong>
+                    </div>
+
+                    <div>
+                        <span>VERSION</span>
+                        <strong>0.2.0</strong>
+                    </div>
+
+                    <div>
+                        <span>LICENSE</span>
+                        <strong>OPEN SOURCE</strong>
+                    </div>
+
                 </div>
 
+            </div>
 
-                <div class="about-card">
+        </section>
 
-                    <h4>Design principles</h4>
+    </main>
 
-                    <ul>
-
-                        <li>
-                            Local-first analysis whenever possible.
-                        </li>
-
-                        <li>
-                            Transparent about browser limitations.
-                        </li>
-
-                        <li>
-                            Designed for authorized security research.
-                        </li>
-
-                        <li>
-                            Open-source and community extensible.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </section>
-
-        </main>
-
-    </div>
+</div>
 
 
-    <script src="app.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
