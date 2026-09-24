@@ -1,18 +1,28 @@
 // ==========================================
-// NEXUS CYBEROPS
-// Main application logic
+// NEXUS // CYBEROPS
+// Browser-based defensive security toolkit
 // ==========================================
 
 
-// ---------- CLOCK ----------
+// ==========================================
+// CLOCK
+// ==========================================
 
 function updateClock() {
 
     const now = new Date();
 
-    const time = now.toLocaleTimeString();
+    const time =
+        now.toLocaleTimeString(
+            [],
+            {
+                hour12: false
+            }
+        );
 
-    document.getElementById("clock").textContent = time;
+    document.getElementById("clock")
+        .textContent = time;
+
 }
 
 updateClock();
@@ -20,16 +30,18 @@ updateClock();
 setInterval(updateClock, 1000);
 
 
-// ---------- PAGE NAVIGATION ----------
-
-const navButtons =
-    document.querySelectorAll(".nav-button");
+// ==========================================
+// PAGE NAVIGATION
+// ==========================================
 
 const pages =
     document.querySelectorAll(".page");
 
-const pageTitle =
-    document.getElementById("page-title");
+const navButtons =
+    document.querySelectorAll(".nav-btn");
+
+const currentPage =
+    document.getElementById("current-page");
 
 
 function openPage(pageName) {
@@ -41,8 +53,21 @@ function openPage(pageName) {
     });
 
 
+    navButtons.forEach(button => {
+
+        button.classList.remove("active");
+
+    });
+
+
     const target =
         document.getElementById(pageName);
+
+    const button =
+        document.querySelector(
+            `[data-page="${pageName}"]`
+        );
+
 
     if (target) {
 
@@ -51,71 +76,59 @@ function openPage(pageName) {
     }
 
 
-    navButtons.forEach(button => {
+    if (button) {
 
-        button.classList.remove("active");
+        button.classList.add("active");
 
-        if (button.dataset.page === pageName) {
-
-            button.classList.add("active");
-
-        }
-
-    });
+    }
 
 
-    const titles = {
-
-        dashboard: "Dashboard",
-
-        hash: "Hash Analyzer",
-
-        jwt: "JWT Inspector",
-
-        labs: "Cyber Labs",
-
-        about: "About"
-
-    };
-
-
-    pageTitle.textContent =
-        titles[pageName] || "NEXUS";
+    currentPage.textContent =
+        pageName.toUpperCase();
 
 }
 
 
 navButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        () => {
 
-        openPage(button.dataset.page);
+            openPage(
+                button.dataset.page
+            );
 
-    });
+        }
+    );
 
 });
 
 
-document
-    .querySelectorAll("[data-open]")
-    .forEach(button => {
+document.querySelectorAll(
+    "[data-open]"
+).forEach(element => {
 
-        button.addEventListener("click", () => {
+    element.addEventListener(
+        "click",
+        () => {
 
-            openPage(button.dataset.open);
+            openPage(
+                element.dataset.open
+            );
 
-        });
+        }
+    );
 
-    });
+});
 
 
-// ---------- HASH ANALYZER ----------
+// ==========================================
+// FILE FORENSICS
+// ==========================================
 
 const fileInput =
     document.getElementById("file-input");
-
-const chooseFile =
-    document.getElementById("choose-file");
 
 const dropZone =
     document.getElementById("drop-zone");
@@ -124,67 +137,119 @@ const hashResults =
     document.getElementById("hash-results");
 
 
-chooseFile.addEventListener("click", () => {
+fileInput.addEventListener(
+    "change",
+    async event => {
 
-    fileInput.click();
+        const file =
+            event.target.files[0];
 
-});
+        if (file) {
 
+            await analyzeFile(file);
 
-fileInput.addEventListener("change", event => {
-
-    const file = event.target.files[0];
-
-    if (file) {
-
-        analyzeFile(file);
+        }
 
     }
-
-});
-
-
-dropZone.addEventListener("dragover", event => {
-
-    event.preventDefault();
-
-    dropZone.style.borderColor =
-        "var(--accent)";
-
-});
+);
 
 
-dropZone.addEventListener("dragleave", () => {
+// Drag & Drop
 
-    dropZone.style.borderColor =
-        "#394555";
+dropZone.addEventListener(
+    "dragover",
+    event => {
 
-});
+        event.preventDefault();
 
-
-dropZone.addEventListener("drop", event => {
-
-    event.preventDefault();
-
-    dropZone.style.borderColor =
-        "#394555";
-
-    const file =
-        event.dataTransfer.files[0];
-
-    if (file) {
-
-        analyzeFile(file);
+        dropZone.classList.add("dragging");
 
     }
+);
 
-});
 
+dropZone.addEventListener(
+    "dragleave",
+    () => {
+
+        dropZone.classList.remove(
+            "dragging"
+        );
+
+    }
+);
+
+
+dropZone.addEventListener(
+    "drop",
+    async event => {
+
+        event.preventDefault();
+
+        dropZone.classList.remove(
+            "dragging"
+        );
+
+
+        const file =
+            event.dataTransfer.files[0];
+
+        if (file) {
+
+            await analyzeFile(file);
+
+        }
+
+    }
+);
+
+
+// ==========================================
+// FILE ANALYSIS
+// ==========================================
 
 async function analyzeFile(file) {
 
     const buffer =
         await file.arrayBuffer();
+
+    const bytes =
+        new Uint8Array(buffer);
+
+
+    document.getElementById(
+        "file-name"
+    ).textContent = file.name;
+
+
+    document.getElementById(
+        "file-size"
+    ).textContent =
+        formatBytes(file.size);
+
+
+    document.getElementById(
+        "mime-type"
+    ).textContent =
+        file.type || "Unknown";
+
+
+    document.getElementById(
+        "file-type"
+    ).textContent =
+        detectFileType(bytes);
+
+
+    document.getElementById(
+        "magic-bytes"
+    ).textContent =
+        getMagicBytes(bytes);
+
+
+    document.getElementById(
+        "entropy"
+    ).textContent =
+        calculateEntropy(bytes).toFixed(4);
 
 
     const algorithms = [
@@ -192,14 +257,6 @@ async function analyzeFile(file) {
         "SHA-384",
         "SHA-512"
     ];
-
-
-    document.getElementById("file-name")
-        .textContent = file.name;
-
-
-    document.getElementById("file-size")
-        .textContent = formatBytes(file.size);
 
 
     for (const algorithm of algorithms) {
@@ -216,38 +273,295 @@ async function analyzeFile(file) {
 
 
         const elementId =
-            algorithm.toLowerCase()
+            algorithm
+                .toLowerCase()
                 .replace("-", "");
 
 
-        document.getElementById(elementId)
-            .textContent = hashHex;
+        document.getElementById(
+            elementId
+        ).textContent = hashHex;
 
     }
 
 
-    hashResults.classList.remove("hidden");
+    const strings =
+        extractStrings(bytes);
+
+
+    document.getElementById(
+        "file-strings"
+    ).textContent =
+        strings.length > 0
+            ? strings.join("\n")
+            : "No printable strings found.";
+
+
+    hashResults.classList.remove(
+        "hidden"
+    );
 
 }
 
 
+// ==========================================
+// FILE TYPE DETECTION
+// ==========================================
+
+function detectFileType(bytes) {
+
+    if (
+        bytes[0] === 0x89 &&
+        bytes[1] === 0x50 &&
+        bytes[2] === 0x4E &&
+        bytes[3] === 0x47
+    ) {
+
+        return "PNG Image";
+
+    }
+
+
+    if (
+        bytes[0] === 0xFF &&
+        bytes[1] === 0xD8 &&
+        bytes[2] === 0xFF
+    ) {
+
+        return "JPEG Image";
+
+    }
+
+
+    if (
+        bytes[0] === 0x25 &&
+        bytes[1] === 0x50 &&
+        bytes[2] === 0x44 &&
+        bytes[3] === 0x46
+    ) {
+
+        return "PDF Document";
+
+    }
+
+
+    if (
+        bytes[0] === 0x50 &&
+        bytes[1] === 0x4B &&
+        bytes[2] === 0x03 &&
+        bytes[3] === 0x04
+    ) {
+
+        return "ZIP / Office Archive";
+
+    }
+
+
+    if (
+        bytes[0] === 0x47 &&
+        bytes[1] === 0x49 &&
+        bytes[2] === 0x46
+    ) {
+
+        return "GIF Image";
+
+    }
+
+
+    if (
+        bytes[0] === 0x7F &&
+        bytes[1] === 0x45 &&
+        bytes[2] === 0x4C &&
+        bytes[3] === 0x46
+    ) {
+
+        return "ELF Executable";
+
+    }
+
+
+    if (
+        bytes[0] === 0x4D &&
+        bytes[1] === 0x5A
+    ) {
+
+        return "Windows PE Executable";
+
+    }
+
+
+    return "Unknown / Binary";
+
+}
+
+
+// ==========================================
+// MAGIC BYTES
+// ==========================================
+
+function getMagicBytes(bytes) {
+
+    const length =
+        Math.min(
+            bytes.length,
+            16
+        );
+
+
+    return Array.from(
+        bytes.slice(0, length)
+    )
+        .map(
+            byte =>
+                byte
+                    .toString(16)
+                    .padStart(2, "0")
+                    .toUpperCase()
+        )
+        .join(" ");
+
+}
+
+
+// ==========================================
+// ENTROPY
+// ==========================================
+
+function calculateEntropy(bytes) {
+
+    if (bytes.length === 0) {
+
+        return 0;
+
+    }
+
+
+    const frequencies =
+        new Array(256).fill(0);
+
+
+    for (const byte of bytes) {
+
+        frequencies[byte]++;
+
+    }
+
+
+    let entropy = 0;
+
+
+    for (const count of frequencies) {
+
+        if (count === 0) {
+
+            continue;
+
+        }
+
+
+        const probability =
+            count / bytes.length;
+
+
+        entropy -=
+            probability *
+            Math.log2(
+                probability
+            );
+
+    }
+
+
+    return entropy;
+
+}
+
+
+// ==========================================
+// PRINTABLE STRINGS
+// ==========================================
+
+function extractStrings(bytes) {
+
+    const results = [];
+
+    let current = "";
+
+
+    for (const byte of bytes) {
+
+        const printable =
+            byte >= 32 &&
+            byte <= 126;
+
+
+        if (printable) {
+
+            current +=
+                String.fromCharCode(byte);
+
+        } else {
+
+            if (current.length >= 4) {
+
+                results.push(current);
+
+            }
+
+            current = "";
+
+        }
+
+    }
+
+
+    if (current.length >= 4) {
+
+        results.push(current);
+
+    }
+
+
+    return results.slice(
+        0,
+        200
+    );
+
+}
+
+
+// ==========================================
+// HASH → HEX
+// ==========================================
+
 function bufferToHex(buffer) {
 
-    const bytes =
-        new Uint8Array(buffer);
-
-    return [...bytes]
-        .map(byte =>
-            byte.toString(16).padStart(2, "0")
+    return Array.from(
+        new Uint8Array(buffer)
+    )
+        .map(
+            byte =>
+                byte
+                    .toString(16)
+                    .padStart(2, "0")
         )
         .join("");
 
 }
 
 
+// ==========================================
+// FILE SIZE
+// ==========================================
+
 function formatBytes(bytes) {
 
-    if (bytes === 0) return "0 Bytes";
+    if (bytes === 0) {
+
+        return "0 Bytes";
+
+    }
+
 
     const units = [
         "Bytes",
@@ -256,30 +570,62 @@ function formatBytes(bytes) {
         "GB"
     ];
 
+
     const index =
         Math.floor(
-            Math.log(bytes) / Math.log(1024)
+            Math.log(bytes) /
+            Math.log(1024)
         );
+
 
     return (
         parseFloat(
-            (bytes / Math.pow(1024, index))
-                .toFixed(2)
-        )
-        + " "
-        + units[index]
+            (
+                bytes /
+                Math.pow(
+                    1024,
+                    index
+                )
+            ).toFixed(2)
+        ) +
+        " " +
+        units[index]
     );
 
 }
 
 
-// ---------- JWT INSPECTOR ----------
+// ==========================================
+// JWT INSPECTOR
+// ==========================================
 
-const decodeButton =
-    document.getElementById("decode-jwt");
+const jwtInput =
+    document.getElementById(
+        "jwt-input"
+    );
+
+const decodeJWTButton =
+    document.getElementById(
+        "decode-jwt"
+    );
+
+const jwtHeader =
+    document.getElementById(
+        "jwt-header"
+    );
+
+const jwtPayload =
+    document.getElementById(
+        "jwt-payload"
+    );
+
+const jwtError =
+    document.getElementById(
+        "jwt-error"
+    );
 
 
-decodeButton.addEventListener(
+decodeJWTButton.addEventListener(
     "click",
     decodeJWT
 );
@@ -287,41 +633,17 @@ decodeButton.addEventListener(
 
 function decodeJWT() {
 
-    const input =
-        document.getElementById("jwt-input")
-            .value
-            .trim();
+    const token =
+        jwtInput.value.trim();
 
 
-    const headerElement =
-        document.getElementById("jwt-header");
-
-    const payloadElement =
-        document.getElementById("jwt-payload");
+    jwtError.textContent = "";
 
 
-    headerElement.textContent = "{ }";
-    payloadElement.textContent = "{ }";
+    if (!token) {
 
-
-    if (!input) {
-
-        headerElement.textContent =
-            "No token supplied.";
-
-        return;
-
-    }
-
-
-    const parts =
-        input.split(".");
-
-
-    if (parts.length !== 3) {
-
-        headerElement.textContent =
-            "Invalid JWT format.";
+        jwtError.textContent =
+            "ERROR: TOKEN IS EMPTY";
 
         return;
 
@@ -330,71 +652,97 @@ function decodeJWT() {
 
     try {
 
+        const parts =
+            token.split(".");
+
+
+        if (parts.length !== 3) {
+
+            throw new Error(
+                "Invalid JWT structure"
+            );
+
+        }
+
+
         const header =
             JSON.parse(
-                base64UrlDecode(parts[0])
+                base64URLDecode(
+                    parts[0]
+                )
             );
 
 
         const payload =
             JSON.parse(
-                base64UrlDecode(parts[1])
+                base64URLDecode(
+                    parts[1]
+                )
             );
 
 
-        headerElement.textContent =
+        jwtHeader.textContent =
             JSON.stringify(
                 header,
                 null,
-                2
+                4
             );
 
 
-        payloadElement.textContent =
+        jwtPayload.textContent =
             JSON.stringify(
                 payload,
                 null,
-                2
+                4
             );
 
-    }
 
-    catch (error) {
+    } catch (error) {
 
-        headerElement.textContent =
-            "Unable to decode token.";
+        jwtHeader.textContent =
+            "—";
 
-        payloadElement.textContent =
-            error.message;
+        jwtPayload.textContent =
+            "—";
+
+        jwtError.textContent =
+            "ERROR: INVALID JWT OR INVALID JSON";
 
     }
 
 }
 
 
-function base64UrlDecode(value) {
+// ==========================================
+// BASE64URL DECODER
+// ==========================================
 
-    let base64 =
+function base64URLDecode(value) {
+
+    value =
         value
             .replace(/-/g, "+")
             .replace(/_/g, "/");
 
 
-    while (base64.length % 4) {
+    while (
+        value.length % 4 !== 0
+    ) {
 
-        base64 += "=";
+        value += "=";
 
     }
 
 
     const binary =
-        atob(base64);
+        atob(value);
 
 
     const bytes =
         Uint8Array.from(
             binary,
-            char => char.charCodeAt(0)
+            character =>
+                character.charCodeAt(0)
         );
 
 
@@ -402,3 +750,17 @@ function base64UrlDecode(value) {
         .decode(bytes);
 
 }
+
+
+// ==========================================
+// STARTUP MESSAGE
+// ==========================================
+
+console.log(
+    "%cNEXUS // CYBEROPS",
+    "color:#7dff9a;font-size:20px;font-weight:bold;"
+);
+
+console.log(
+    "Local-first defensive security toolkit."
+);
